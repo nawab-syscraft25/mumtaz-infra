@@ -2,8 +2,10 @@
 
 (function ($) {
   "use strict";
+
   function mainMap() {
     var ib = new InfoBox();
+
     function locationData(img, location, phone, mail) {
       return (
         "" +
@@ -39,13 +41,12 @@
       [
         locationData(
           "assets/images/banner/contact.jpg",
-          "cha, 100 , haji sonamia road, sobji goli, Badda",
-          "support@reactheme.com",
+          "Nuri Mohalla Main Road, Chhoti, Sagore, Madhya Pradesh 454775",
+          "support@mumtazinfra.com",
           "1-333-345-6868"
         ),
-        40.709327,
-        -74.004815,
-        1,
+        22.60886358625218,
+        75.60340477052016,
         "<div></div>",
       ],
     ];
@@ -189,7 +190,7 @@
     var map = new google.maps.Map(document.getElementById("map-contact"), {
       zoom: zoomLevel,
       scrollwheel: false,
-      center: new google.maps.LatLng(40.709295, -74.003099),
+      center: new google.maps.LatLng(22.60886358625218, 75.60340477052016),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       zoomControl: true,
       zoomControlOptions: {
@@ -201,75 +202,59 @@
       navigationControl: false,
       streetViewControl: false,
       gestureHandling: "cooperative",
-      styles: [
-        {
+      styles: [{
           featureType: "all",
           elementType: "geometry.fill",
-          stylers: [
-            {
-              weight: "2.00",
-            },
-          ],
+          stylers: [{
+            weight: "2.00",
+          }, ],
         },
         {
           featureType: "all",
           elementType: "geometry.stroke",
-          stylers: [
-            {
-              color: "#9c9c9c",
-            },
-          ],
+          stylers: [{
+            color: "#9c9c9c",
+          }, ],
         },
         {
           featureType: "all",
           elementType: "labels.text",
-          stylers: [
-            {
-              visibility: "on",
-            },
-          ],
+          stylers: [{
+            visibility: "on",
+          }, ],
         },
         {
           featureType: "landscape",
           elementType: "all",
-          stylers: [
-            {
-              color: "#f2f2f2",
-            },
-          ],
+          stylers: [{
+            color: "#f2f2f2",
+          }, ],
         },
         {
           featureType: "landscape",
           elementType: "geometry.fill",
-          stylers: [
-            {
-              color: "#ffffff",
-            },
-          ],
+          stylers: [{
+            color: "#ffffff",
+          }, ],
         },
         {
           featureType: "landscape.man_made",
           elementType: "geometry.fill",
-          stylers: [
-            {
-              color: "#ffffff",
-            },
-          ],
+          stylers: [{
+            color: "#ffffff",
+          }, ],
         },
         {
           featureType: "poi",
           elementType: "all",
-          stylers: [
-            {
-              visibility: "off",
-            },
-          ],
+          stylers: [{
+            visibility: "off",
+          }, ],
         },
         {
           featureType: "road",
           elementType: "all",
-          stylers: [
-            {
+          stylers: [{
               saturation: -100,
             },
             {
@@ -280,62 +265,49 @@
         {
           featureType: "road",
           elementType: "geometry.fill",
-          stylers: [
-            {
-              color: "#eeeeee",
-            },
-          ],
+          stylers: [{
+            color: "#eeeeee",
+          }, ],
         },
         {
           featureType: "road",
           elementType: "labels.text.fill",
-          stylers: [
-            {
-              color: "#7b7b7b",
-            },
-          ],
+          stylers: [{
+            color: "#7b7b7b",
+          }, ],
         },
         {
           featureType: "road",
           elementType: "labels.text.stroke",
-          stylers: [
-            {
-              color: "#ffffff",
-            },
-          ],
+          stylers: [{
+            color: "#ffffff",
+          }, ],
         },
         {
           featureType: "road.highway",
           elementType: "all",
-          stylers: [
-            {
-              visibility: "simplified",
-            },
-          ],
+          stylers: [{
+            visibility: "simplified",
+          }, ],
         },
         {
           featureType: "road.arterial",
           elementType: "labels.icon",
-          stylers: [
-            {
-              visibility: "off",
-            },
-          ],
+          stylers: [{
+            visibility: "off",
+          }, ],
         },
         {
           featureType: "transit",
           elementType: "all",
-          stylers: [
-            {
-              visibility: "off",
-            },
-          ],
+          stylers: [{
+            visibility: "off",
+          }, ],
         },
         {
           featureType: "water",
           elementType: "all",
-          stylers: [
-            {
+          stylers: [{
               color: "#46bcec",
             },
             {
@@ -346,36 +318,30 @@
         {
           featureType: "water",
           elementType: "geometry.fill",
-          stylers: [
-            {
-              color: "#c8d7d4",
-            },
-          ],
+          stylers: [{
+            color: "#c8d7d4",
+          }, ],
         },
         {
           featureType: "water",
           elementType: "labels.text.fill",
-          stylers: [
-            {
-              color: "#070707",
-            },
-          ],
+          stylers: [{
+            color: "#070707",
+          }, ],
         },
         {
           featureType: "water",
           elementType: "labels.text.stroke",
-          stylers: [
-            {
-              color: "#ffffff",
-            },
-          ],
+          stylers: [{
+            color: "#ffffff",
+          }, ],
         },
       ],
     });
 
     $(".listing-item-container").on("mouseover", function () {
       var listingAttr = $(this).data("marker-id");
-      if (listingAttr !== undefined) {
+      if (listingAttr !== "Mumtaz infra") {
         var listing_id = $(this).data("marker-id") - 1;
         var marker_div = allMarkers[listing_id].div;
         $(marker_div).addClass("clicked");
@@ -397,7 +363,9 @@
       maxWidth: 0,
       pixelOffset: new google.maps.Size(-134, -55),
       zIndex: null,
-      boxStyle: { width: "360px" },
+      boxStyle: {
+        width: "360px"
+      },
       closeBoxMargin: "0",
       closeBoxURL: "",
       infoBoxClearance: new google.maps.Size(25, 25),
@@ -407,20 +375,24 @@
     };
     var markerCluster, overlay, i;
     var allMarkers = [];
-    var clusterStyles = [
-      { textColor: "white", url: "", height: 50, width: 50 },
-    ];
+    var clusterStyles = [{
+      textColor: "white",
+      url: "",
+      height: 50,
+      width: 50
+    }, ];
     var markerIco;
     for (i = 0; i < locations.length; i++) {
       markerIco = locations[i][4];
       var overlaypositions = new google.maps.LatLng(
-        locations[i][1],
-        locations[i][2]
-      ),
+          locations[i][1],
+          locations[i][2]
+        ),
         overlay = new CustomMarker(
           overlaypositions,
-          map,
-          { marker_id: i },
+          map, {
+            marker_id: i
+          },
           markerIco
         );
       allMarkers.push(overlay);
@@ -460,6 +432,7 @@
     });
     var zoomControlDiv = document.createElement("div");
     var zoomControl = new ZoomControl(zoomControlDiv, map);
+
     function ZoomControl(controlDiv, map) {
       zoomControlDiv.index = 1;
       map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(
@@ -487,9 +460,13 @@
       e.preventDefault();
       $(this).toggleClass("enabled");
       if ($(this).is(".enabled")) {
-        map.setOptions({ scrollwheel: true });
+        map.setOptions({
+          scrollwheel: true
+        });
       } else {
-        map.setOptions({ scrollwheel: false });
+        map.setOptions({
+          scrollwheel: false
+        });
       }
     });
     $("#geoLocation, .input-with-icon.location a").click(function (e) {
